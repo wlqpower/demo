@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+
+    </style>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="div1">
+        <child :level="1">Hello world!</child>
+    </div>
+
+    <script type="text/javascript">
+        // import Vue from 'vue';
+        Vue.component('child', {
+            render: function(h) {
+            // render: function(createElement) {
+                // return createElement(
+                //     'h' + this.level, // tag name 标签名称
+                //     this.$slots.default // 子组件中的阵列
+                // )
+                return h(
+                    'div',
+                    // this.$slots.default,
+                    {
+                        id: 'myDiv',
+                    },
+                    [
+                        h(
+                            'h1',
+                            '我是标题1'
+                        ),
+                        h(
+                            'p',
+                            '我是p标签'
+                        )
+                    ]
+                )
+            },
+            props: {
+                level: {
+                    type: Number,
+                    required: true
+                }
+            }
+        })
+
+        new Vue({
+            el: "#div1"
+        })
+    </script>
+
+</body>
+
+</html>

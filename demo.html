@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            .one{
+                width: 300px;
+                overflow: hidden;
+                position: fixed;
+                left: 100px;
+            }
+
+            .oneCon{
+                width: 1312px;
+                height: 40px;
+                overflow-x: scroll;
+                white-space: nowrap;
+                position: relative;
+                left: 0px;
+            }
+
+            .two{
+                padding-top: 50px;
+                height: 500px;
+                background-color: #ccc;
+                margin-left: 100px;
+                width: 300px;
+                overflow-x: scroll;
+                white-space: nowrap;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="parent" style="overflow: hidden;">
+            <div class="one">
+                <div class="oneCon">
+                    1测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试1
+                </div>
+            </div>
+            <div class="two">
+                测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+            </div>
+        </div>
+        <script type="text/javascript">
+            var oneCon = document.querySelector('.oneCon');
+            var two = document.querySelector('.two');
+            two.addEventListener('scroll', function(){
+                console.log(this.scrollLeft);
+                oneCon.style.left = -this.scrollLeft + 'px';
+            })
+        </script>
+    </body>
+</html>
